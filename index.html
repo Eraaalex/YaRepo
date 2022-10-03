@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <header class="header">
+<div class="container_navigation">
+    <ul class="list_navigation">
+      <li><a class= "link link_nav "href="#rec1">Кто я?</a></li>
+      <li><a class ="link link_nav" href="#rec2">Обучение</a></li>
+      <li><a class="link link_nav" href="#rec3">Итог</a></li>
+
+    </ul>
+
+</div>
+
+  </header>
+  <div class="container">
+    <div class="intro">
+      <div class="name_intro">Ермолаева Елена Александровна</div>
+      <div class="opinion_intro">
+        <span class="opinion_sn">Личный сайт визитка</span>
+        <span class="cursor">|</span></div>
+    </div>
+
+    <div class="space">
+
+    </div>
+
+    <div class="location" id="rec2"></div>
+      <h1>LOOOK!</h1>
+
+    </div>
+
+  <footer class="footer">
+
+  </footer>
+<script>
+  let s ="Этот текст печатается прямо сейчас"
+  let el = document.querySelector(".location");
+  el.textContent ='';
+  var i=0;
+  function go() {
+    el.textContent +=s[i];
+    i++;
+    if (i < s.length) {
+        setTimeout(go, 100);
+    }
+  }
+var flag = 1;
+let observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && flag){
+        flag--;
+        go();
+
+
+      }
+    });
+});
+observer.observe(el);
+
+
+
+
+  //console.log(document.getElementsByClassName('opinion_sn').textContent)
+
+
+</script>
+
+
+</body>
+</html>
