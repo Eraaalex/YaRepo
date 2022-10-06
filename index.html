@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio</title>
-<link rel="preload" as="image" href="img.png" media="(max-width: 600px)">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -16,6 +15,11 @@
       <li class = "li"><a class ="link_nav" href="#rec2">Обучение</a></li>
       <li class = "li"><a class="link_nav" href="#rec3">Планы</a></li>
     </ul>
+</div>
+<div class="btn_block">
+<button type="button" class="btn_Menu invisible">
+          <div class="menu"><img src="menu.svg" alt="smth" height="20px"></div>
+</button>
 </div>
 <div class="menu_block invisible">
     <div class="nav">
@@ -80,12 +84,11 @@
         </p>
       </div>
     </div>
-
-
-
   </div>
-  <footer class="footer">
+  <hr>
 
+  <footer class="footer">
+&#xa9; Eraaalex
   </footer>
 
 <script>
@@ -99,7 +102,6 @@
         setTimeout(inp, 100);
     }
   }
-
   var flag = 1;
   let observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -110,46 +112,27 @@
       });
   });
   observer.observe(el);
-
   paragraphs = document.querySelectorAll(".paragraph");
 
+// определние распложения каждого второго блока справа, в данном случае он всего 1
   for (var j = 1; j < paragraphs.length; j+=2){
     paragraphs[j].classList.add("right");
   }
+let btn=document.querySelector('.btn_Menu');
 function check(){
-  let li = document.querySelector(".added");
-  if (document.documentElement.clientWidth <= 800 && li==null){
-    let li = document.createElement('div');
-    li.classList.add("added")
-    let btn = document.createElement('button');
-    btn.classList="btn_Menu";
-    btn.setAttribute('type','button');
-    let div =document.createElement('div');
-    div.classList="menu";
-    let img = document.createElement('img');
-    img.setAttribute('src','menu.svg');
-    div.append(img);
-    btn.append(div);
-    li.append(btn);
-    let ul = document.querySelector(".list_navigation");
-    ul.after(li);
-
+  if (window.innerWidth <= 800){
+    document.querySelector(".btn_block").classList.remove('invisible');
+    btn.classList.remove("invisible");
   }
   else{
-
-    if (li !== null && (document.documentElement.clientWidth > 800)){
-      li.remove();
-      document.querySelector('.menu_block').classList.add('invisible');
-    }
+    document.querySelector(".btn_block").classList.add("invisible");
+    document.querySelector(".menu_block").classList.add("invisible");
+    btn.classList.add("invisible");
   }}
   check();
   window.addEventListener('resize',function(){
     check();
-});
-
-
-  let btn=document.querySelector('.btn_Menu');
-
+  });
 
   let block=document.querySelector('.menu_block');
 
@@ -158,7 +141,6 @@ function check(){
     block.classList.toggle('invisible');
     }
   }
-
 </script>
 
 

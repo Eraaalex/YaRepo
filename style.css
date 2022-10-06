@@ -18,7 +18,11 @@ body{
   color:#000;
   background: linear-gradient(45deg, #EECFBA, #C5DDE8);
 }
-
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
 
 a{
   text-decoration: none;
@@ -29,22 +33,9 @@ a{
   color: #585858;
 }
 
-
-
-*,
-*::before,
-*::after{
-  box-sizing: border-box;
-}
 .container_navigation{
   margin-bottom: 10px;
 
-}
-.red{
-  background-color: red;
-}
-.green{
-  background-color: green;
 }
 
 .link_nav{
@@ -71,7 +62,6 @@ a{
 .link_nav.active:after{
   opacity: 1;
 }
-
 li{
   list-style-type: none;
 }
@@ -94,7 +84,6 @@ ul{
   padding: 20% 0 20% 20%;
 
 }
-
 .name_intro, .opinion_intro{
   margin: 0 auto 0 auto;
   padding: 0;
@@ -102,11 +91,9 @@ ul{
 .name_intro{
   font-size: 44px;
 }
-
 .opinion_sn, .cursor{
     font-size: 22px;
 }
-
 .cursor{
   -webkit-animation: blink 1s linear infinite;
   animation: blink 1s linear infinite;
@@ -134,10 +121,7 @@ ul{
 
 }
 .right{
-  /* padding-left: 40%; */
   padding: 0;
-
-
 }
 .unity_block{
   width:100%;
@@ -148,23 +132,17 @@ ul{
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .video{
   display: block;
   width: 80%;
-
   height: 60%;
-
-
 }
 .loaging{
   margin: 0;
   padding: 0;
-
 }
 .spin-loading{
-
   height: 5vw;
   width: 5vw;
    border:1px solid #000;
@@ -172,9 +150,6 @@ ul{
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  /* border-top-color: #FC5185; */
-
-
 }
 .spin-loading:hover{
   animation: 1.5s spin infinite ease-in-out;
@@ -217,7 +192,7 @@ ul{
 }
 
 *::-webkit-scrollbar-track {
- -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+ -webkit-box-shadow: inset 0 0 4px #ccc;
  border-radius: 5px;
  background-color: #f9f9fd;
 }
@@ -232,46 +207,25 @@ ul{
   align-items: center;
   justify-content: center;
   text-align: center;
-
   outline: 1px solid #A0A0A0;
-}
-
-
-.added{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-
-
-.menu{
-
 }
 
 .menu_block{
   width:100%;
   display: flex;
   flex-direction: column;
-  /* height: 100%; */
   background-color:inherit;
-  /*height:300px; fix it*/
   position: absolute;
-
   top:10px;
   padding-left: 10px;
   padding-bottom: 6vw;
-
-    z-index: 10;
-    margin-bottom: 10vw;
+  z-index: 10;
+  margin-bottom: 10vw;
 }
 .btn_Menu{
 border: none;
 outline: none;
 background-color: inherit;
-display: flex;
-justify-content: center;
-align-items: center;
 padding:0;
 }
 .added{
@@ -283,7 +237,16 @@ img{
 .invisible{
 display: none;
 }
-
+.btn_block{
+  width: 100%;
+  display: flex;
+  padding: 0;
+  justify-content: flex-end;
+}
+.menu_block{
+  font-size: 6vw;
+  font-family: Kurier;
+}
 @media only screen and (max-width: 800px){
 .unity_block{
   display: flex;
@@ -311,6 +274,7 @@ h1{
 .list_navigation{
   display: none;
 }
+
 .unity_block{
   width:100%;
   font-size: 30px;
@@ -327,9 +291,14 @@ h1{
 img{
 
   height: 7vw;
+  max-width: 40px;
 }
 .btn_Menu{
   height: 7vw;
   width: 7vw;
+  max-width: 40px;
+}
+.container_navigation{
+  margin-bottom: 1px;
 }
 }
