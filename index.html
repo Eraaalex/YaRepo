@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio</title>
-
+<link rel="preload" as="image" href="img.png" media="(max-width: 600px)">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -11,65 +12,152 @@
   <header class="header">
 <div class="container_navigation">
     <ul class="list_navigation">
-      <li><a class= "link link_nav "href="#rec1">Кто я?</a></li>
-      <li><a class ="link link_nav" href="#rec2">Обучение</a></li>
-      <li><a class="link link_nav" href="#rec3">Итог</a></li>
-
+      <li class ="li"><a class= "link_nav "href="#rec1">Кто я?</a></li>
+      <li class = "li"><a class ="link_nav" href="#rec2">Обучение</a></li>
+      <li class = "li"><a class="link_nav" href="#rec3">Планы</a></li>
     </ul>
-
 </div>
-
+<div class="menu_block invisible">
+    <div class="nav">
+    <ul>
+      <li class ="li"><a class= "link_nav "href="#rec1">Кто я?</a></li>
+      <li class = "li"><a class ="link_nav" href="#rec2">Обучение</a></li>
+      <li class = "li"><a class="link_nav" href="#rec3">Планы</a></li>
+    </ul>
+    </div>
+  </div>
   </header>
+
   <div class="container">
     <div class="intro">
       <div class="name_intro">Ермолаева Елена Александровна</div>
       <div class="opinion_intro">
-        <span class="opinion_sn">Личный сайт визитка</span>
+        <span class="opinion_sn"></span>
         <span class="cursor">|</span></div>
     </div>
 
-    <div class="space">
+    <div class="description">
+      <div class="paragraph" id="rec1">
+        <h1 class="title">Немного обо мне</h1>
+        <p>
+          Мне 17 лет.
+          В этом году я окончила 11 класс информационно-технологического профиля Бауманской инженерной школы 1580.
+          Успешно сдав ЕГЭ, сейчас я обучаюсь в Высшей Школе Экономики на ФКН по направлению "Программная инженерия".
+         </p>
+      </div>
+      <div class="unity_block">
+        <div class="video_block">
+          <video class ="video" controls="controls">
+           <source src="Website.mp4" >
+          </video>
+        </div>
+        <div class="paragraph" id="rec2">
+          <h1 class="title">С чего все началось и что я уже умею</h1>
+          <p>
+            Я увлекаюсь front&#8209;end разработкой относительно недавно. Мой интерес
+            возник, в прогшлом году, когда web&#8209;программирование стало одним из предметом, преподаваемым в школе.
+            Перед нами стояла задача сверстать какой&#8209;либо магазин.
+            Именно тогда я научилась работать с git и для работы с удаленным репозиторием с GitHub. Освоила html, css, научилась использовать фреймворк языка Python: Flask,
+            также немного освоила ORM и его тестированием (также на Python) и основы работы с базами данных SQLite.
+            С моей работой можно также ознакомиться на GitHub</p>
+            <div id="link1"><div class="link_gt"> <a href="https://github.com/Eraaalex/TestRepo/tree/js" target="_blank">Тут</a></div></div>
 
+          <p>
+            А еще работа сайта демонстрируется на видео
+          </p>
+          <p>
+            Пока мне недостаточно опыта, для участия в хакатонах и других IT-соревнованиях по данному направлению.
+            На время мне пришлось приостановить изучение при подготовке к экзаменам для поступления, однако сейчас у меня есть все возможности возобновить работу.
+          </p>
+        </div>
+      </div>
+      <div class="paragraph" id="rec3">
+        <h1 class="title">Мои планы</h1>
+        <p>
+          Помимо моего стремления поступить на интенсив Я.Лицея, я также записалась в Осеннюю школу на направление web-разработка.
+          Это школа на базе факультета МИЭМ НИУ ВШЭ. Она доступна только для студентов данного вуза и я не могла упустить такую возможность.
+          Тем более после ее окончания я планирую вступить в студенческую оргинизаию "Бизнес в стиле .Ru", обучающую студентов и дающую им практические навыки для работы уже после 1 курса.
+        </p>
+      </div>
     </div>
 
-    <div class="location" id="rec2"></div>
-      <h1>LOOOK!</h1>
 
-    </div>
 
+  </div>
   <footer class="footer">
 
   </footer>
+
 <script>
-  let s ="Этот текст печатается прямо сейчас"
-  let el = document.querySelector(".location");
-  el.textContent ='';
-  var i=0;
-  function go() {
+  let el = document.querySelector(".opinion_sn");
+  let s = "Личный сайт-визитка";
+  var i = 0;
+  function inp() {
     el.textContent +=s[i];
     i++;
     if (i < s.length) {
-        setTimeout(go, 100);
+        setTimeout(inp, 100);
     }
   }
-var flag = 1;
-let observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting && flag){
-        flag--;
-        go();
 
+  var flag = 1;
+  let observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && flag){
+          flag--;
+          inp();
+        }
+      });
+  });
+  observer.observe(el);
 
-      }
-    });
+  paragraphs = document.querySelectorAll(".paragraph");
+
+  for (var j = 1; j < paragraphs.length; j+=2){
+    paragraphs[j].classList.add("right");
+  }
+function check(){
+  let li = document.querySelector(".added");
+  if (document.documentElement.clientWidth <= 800 && li==null){
+    let li = document.createElement('div');
+    li.classList.add("added")
+    let btn = document.createElement('button');
+    btn.classList="btn_Menu";
+    btn.setAttribute('type','button');
+    let div =document.createElement('div');
+    div.classList="menu";
+    let img = document.createElement('img');
+    img.setAttribute('src','menu.svg');
+    div.append(img);
+    btn.append(div);
+    li.append(btn);
+    let ul = document.querySelector(".list_navigation");
+    ul.after(li);
+
+  }
+  else{
+
+    if (li !== null && (document.documentElement.clientWidth > 800)){
+      li.remove();
+      document.querySelector('.menu_block').classList.add('invisible');
+    }
+  }}
+  check();
+  window.addEventListener('resize',function(){
+    check();
 });
-observer.observe(el);
 
 
+  let btn=document.querySelector('.btn_Menu');
 
 
-  //console.log(document.getElementsByClassName('opinion_sn').textContent)
+  let block=document.querySelector('.menu_block');
 
+  if (btn !== null){
+  btn.onclick = function(){
+    block.classList.toggle('invisible');
+    }
+  }
 
 </script>
 
