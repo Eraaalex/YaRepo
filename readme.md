@@ -7,4 +7,4 @@
 Для не однообразного последовательного расположения посредством технологии **Grid**, я расположила информационное видео параллельно блоку описания.
 Также были использованы id для некоторых блоков с целью удобной ссылки на них в навигационной панели.
 Также добавлена адаптация под маленькие экраны мобильных устройств посредством использования **медиавыражения**.
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra)](https://github.com/Eraaalex/YaRepo)
